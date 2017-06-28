@@ -1,0 +1,6 @@
+F:\ConsoleBlackjack\ConsoleBlackjack\bin\Debug\ConsoleBlackjack.exe.config
+F:\ConsoleBlackjack\ConsoleBlackjack\bin\Debug\ConsoleBlackjack.exe
+F:\ConsoleBlackjack\ConsoleBlackjack\bin\Debug\ConsoleBlackjack.pdb
+F:\ConsoleBlackjack\ConsoleBlackjack\obj\Debug\ConsoleBlackjack.csprojResolveAssemblyReference.cache
+F:\ConsoleBlackjack\ConsoleBlackjack\obj\Debug\ConsoleBlackjack.exe
+F:\ConsoleBlackjack\ConsoleBlackjack\obj\Debug\ConsoleBlackjack.pdb
