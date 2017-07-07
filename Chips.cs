@@ -16,6 +16,7 @@ namespace ConsoleBlackjack
 
             if (Int32.TryParse(Console.ReadLine(), out money))
             {
+                if(money > 0 )
                 Console.WriteLine(money);
                 Console.ReadLine();
             }
