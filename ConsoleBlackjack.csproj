@@ -43,9 +43,11 @@
   <ItemGroup>
     <Compile Include="BlackjackRules.cs" />
     <Compile Include="Card.cs" />
+    <Compile Include="Chips.cs" />
     <Compile Include="Deck.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Member.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GameModel.cs" />
   </ItemGroup>

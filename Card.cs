@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleBlackjack
 {
-    //GAME STATES
+    
     public enum GameResult { Win = 1, Draw = 0, Lose = -1, Pending = 2, };
     public class Card
     {

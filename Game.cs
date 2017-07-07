@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Reflection;
+using System.Diagnostics;
 
 namespace ConsoleBlackjack
 {
@@ -17,7 +15,7 @@ namespace ConsoleBlackjack
                 Console.WriteLine(String.Format("{0}{1}", card.ID, card.Suit));
             }
 
-            Console.WriteLine(gameModel.Dealer.Hand.Value);
+            Console.WriteLine("\n"+gameModel.Dealer.Hand.Value+" points");
 
             Console.WriteLine(Environment.NewLine);
 
@@ -28,15 +26,14 @@ namespace ConsoleBlackjack
                 Console.WriteLine(String.Format("{0}{1}", card.ID, card.Suit));
             }
 
-            Console.WriteLine(gameModel.Player.Hand.Value);
+            Console.WriteLine("\n"+gameModel.Player.Hand.Value+" points");
             Console.WriteLine(Environment.NewLine);
 
-            //Console.Clear();
         }
 
-        public static void Main()
+        public static void CheckResult(string input)
         {
-            string input = "";
+            //string input = "";
 
             GameModel gameModel = new GameModel(17);
 
@@ -73,8 +70,9 @@ namespace ConsoleBlackjack
                 
             }
             Console.WriteLine(gameModel.Result);
-            Console.ReadLine();
+            Console.WriteLine("if you want to play again - just press any key twice");
 
         }
+
     }
 }

@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleBlackjack
 {
-    /// <summary>
-    /// game rules representation
-    /// </summary>
+
     public static class BlackjackRules
     {
 
@@ -16,9 +14,7 @@ namespace ConsoleBlackjack
 
         public static string[] cards_suits = { " HEART", " DIAMOND", " CLUB", " SPADE" };
 
-        /// <summary>
-        /// returns a new deck
-        /// </summary>
+   
         public static Deck NewDeck
         {
             get
@@ -38,9 +34,7 @@ namespace ConsoleBlackjack
             }
         }
 
-        /// <summary>
-        /// returns a shiffled deck
-        /// </summary>
+       
         public static Deck ShuffledDeck
         {
             get
@@ -49,13 +43,6 @@ namespace ConsoleBlackjack
             }
         }
 
-        /// <summary>
-        /// calculating value of points in hand
-        /// Here is tho totals for aces that return the most clothest one
-        /// to "less than or equal to 21" result
-        /// </summary>
-        /// <param name="deck"></param>
-        /// <returns></returns>
         public static double HandValue(Deck deck)
         {
             int value_when_ace_equals_one = deck.Sum(count => count.Value);
@@ -70,16 +57,7 @@ namespace ConsoleBlackjack
                     }).OrderBy(n => n.weight).First().handValue;
         }
 
-        //other rules
-        /// <summary>
-        /// Check if dealer can hit given current value of hand
-        /// Assume dealer will always stand on 17 and not hit on soft 17
-        /// Hence standLimit
-        /// </summary>
-        /// <param name="deck"></param>
-        /// <param name="standLimit"></param>
-        /// <returns></returns>
-        public static bool CanDillerHit(Deck deck, int standLimit)
+       public static bool CanDillerHit(Deck deck, int standLimit)
         {
             return deck.Value < standLimit;
         }
@@ -91,12 +69,12 @@ namespace ConsoleBlackjack
 
         public static GameResult GetResult(Member player, Member dealer)
         {
-            GameResult gameResult = GameResult.Pending; //???
+            GameResult gameResult = GameResult.Pending; 
 
             double playerValue = HandValue(player.Hand);
             double dealerValue = HandValue(dealer.Hand);
 
-            //player win condition
+            
             if (playerValue <= 21)
             {
                 if (playerValue != dealerValue)
@@ -111,12 +89,12 @@ namespace ConsoleBlackjack
 
                 }
 
-                else
+                if (playerValue == dealerValue)
                 {
                     gameResult = GameResult.Draw;
                 }
             }
-            else
+            if (playerValue >= 21)
             {
                 gameResult = GameResult.Lose;
             }

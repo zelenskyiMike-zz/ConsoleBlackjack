@@ -27,11 +27,11 @@ namespace ConsoleBlackjack
 
              MainDeck = BlackjackRules.ShuffledDeck;
 
-            //Clear hands
+            
             Dealer.Hand.Clear();
             Player.Hand.Clear();
 
-            //Gives first two cards to both players
+            
 
             for (int i = 0; ++i < 3;)
             {
@@ -40,9 +40,7 @@ namespace ConsoleBlackjack
             }
         }
 
-        /// <summary>
-        /// allow player to hit. Dealer automatically hit when player stands.
-        /// </summary>
+        
         public void Hit()
         {
             if (BlackjackRules.CanPlayerHit(Player.Hand) && Result == GameResult.Pending)
@@ -51,10 +49,7 @@ namespace ConsoleBlackjack
             }
         }
 
-        /// <summary>
-        /// When user stands , allows the Dealer to continue hitting until standLimit or bust.
-        /// Then sets game results.
-        /// </summary>
+        
         public void Stand()
         {
             if (Result == GameResult.Pending)
