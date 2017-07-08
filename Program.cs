@@ -8,9 +8,8 @@ namespace ConsoleBlackjack
         public static void Main()
         {
             string input = "";
-            int money = 0;
-
-            Chips.BuyChips(money);
+           
+            Chips.BuyChips();
 
             //do
             //{
