@@ -9,37 +9,27 @@ namespace ConsoleBlackjack
         {
             int money = 0;
             int chips = 0;
+            var regex = new Regex(@"^\d+$");
             
             Console.WriteLine("  If you want to play - you have to buy some chips.\n" +
                               "  Please, enter how muth money do you want to spend on it");
             string inputValue = Console.ReadLine();
+
             
-
-            bool IsItMoney(string input)
+            while (!regex.IsMatch(inputValue) || inputValue == "0")
             {
-                if (String.IsNullOrEmpty(input))
-                { return false; }
+                Console.WriteLine("Try again " + inputValue);
+                inputValue = Console.ReadLine();
+                
 
-                if (input == "[0-9]")
-                { return true; }
-
-                else return false;
+            }
+            if (regex.IsMatch(inputValue))
+            {
+                Console.WriteLine("Fine " + inputValue);
+                Console.ReadLine();
             }
 
-
-            if (!IsItMoney(inputValue))
-            {
-                Console.WriteLine("You can enter only numbers and it must be greater than 0.\n" +
-                                 "  Please, enter how muth money do you want to spend on it");
-               
-            }
-            if (IsItMoney(inputValue))
-            {
-                money = Int32.Parse(inputValue);
-                Console.WriteLine(inputValue + "$");
-            }
-            Console.ReadLine();
-            //return chips;
+            
         }
     }
 }
