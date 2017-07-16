@@ -10,8 +10,10 @@ namespace ConsoleBlackjack
             string input = "";
             int money = 0;
 
-            Chips.BuyChips();
+            //Chips.BuyChips();
 
+            Console.WriteLine(Chips.BuyChips().ToString());
+            Console.ReadLine();
             //do
             //{
             //    Game.CheckResult(input);
