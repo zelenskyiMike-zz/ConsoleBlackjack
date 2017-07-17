@@ -37,7 +37,7 @@ namespace ConsoleBlackjack
 
         public static void CheckResult(string input)
         {
-            //string input = "";
+            
             int blind = 1;
             chips -= blind;
             rate += blind;
@@ -61,9 +61,14 @@ namespace ConsoleBlackjack
                     {
                         gameModel.Stand();
                         ShowStats(gameModel);
-                        //rate = 0;
+                        
                     }
-                    if (input.ToLower() != "hit" && input.ToLower() != "stand")
+                    if (input.ToLower() == "double")
+                    {
+                        gameModel.DoubleRate();
+                        ShowStats(gameModel);
+                    }
+                    if (input.ToLower() != "hit" && input.ToLower() != "stand" && input.ToLower() != "double")
                     {
                         ShowStats(gameModel);
                         throw new Exception("Wrong command");

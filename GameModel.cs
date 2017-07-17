@@ -11,7 +11,7 @@ namespace ConsoleBlackjack
     {
         public Member Dealer = new Member();
         public Member Player = new Member();
-        
+
         public GameResult Result { get; set; }
         public int StandLimit { get; set; }
 
@@ -25,13 +25,13 @@ namespace ConsoleBlackjack
 
             StandLimit = dealerStandLimit;
 
-             MainDeck = BlackjackRules.ShuffledDeck;
+            MainDeck = BlackjackRules.ShuffledDeck;
 
-            
+
             Dealer.Hand.Clear();
             Player.Hand.Clear();
 
-            
+
 
             for (int i = 0; ++i < 3;)
             {
@@ -40,7 +40,7 @@ namespace ConsoleBlackjack
             }
         }
 
-        
+
         public void Hit()
         {
             if (BlackjackRules.CanPlayerHit(Player.Hand) && Result == GameResult.Pending)
@@ -49,7 +49,7 @@ namespace ConsoleBlackjack
             }
         }
 
-        
+
         public void Stand()
         {
             if (Result == GameResult.Pending)
@@ -63,9 +63,23 @@ namespace ConsoleBlackjack
             Result = BlackjackRules.GetResult(Player, Dealer);
         }
 
-        //public void DoubleRate()
-        //{
-
-        //}
+        public void DoubleRate()
+        {
+            if (Game.chips >= Game.rate)
+            {
+                Game.chips -= Game.rate;
+                Game.rate += Game.rate;
+            }
+            if (Game.chips < Game.rate)
+            {
+                Game.rate += Game.chips;
+                Game.chips = 0;
+                Console.WriteLine("You are going all-in");
+            }
+            if (Game.chips == 0)
+            {
+                Console.WriteLine("You can't rate any more because you don't have chips");
+            }
+        }
     }
 }

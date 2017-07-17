@@ -5,7 +5,7 @@ namespace ConsoleBlackjack
 {
     class Chips
     {
-        public static int BuyChips(/*string inputValue*/)
+        public static int BuyChips()
         {
             int money = 0;
             int chips = 0;
