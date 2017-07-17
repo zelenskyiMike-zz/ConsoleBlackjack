@@ -85,18 +85,35 @@ namespace ConsoleBlackjack
                         weight = Math.Abs(handValue - 21) + (handValue > 21 ? 100 : 0)
                     }).OrderBy(n => n.weight).First().handValue;
 
-                    gameResult = playerValue == mostClosestValue ? GameResult.Win : GameResult.Lose;
+                    //gameResult = playerValue == mostClosestValue ? GameResult.Win : GameResult.Lose;
 
+                    if (playerValue == mostClosestValue)
+                    {
+                        gameResult = GameResult.Win;
+                        Game.chips += Game.rate*2;
+                        Game.rate = 0;
+                    }
+                    else 
+                    {
+                        gameResult = GameResult.Lose;
+                        //Game.chips -= Game.rate;
+                        Game.rate = 0;
+                    }
                 }
 
                 if (playerValue == dealerValue)
                 {
                     gameResult = GameResult.Draw;
+                    Game.chips += Game.rate;
+                    Game.rate = 0;
+
                 }
             }
             if (playerValue >= 21)
             {
                 gameResult = GameResult.Lose;
+                //Game.chips -= Game.rate;
+                Game.rate = 0;
             }
 
             return gameResult;

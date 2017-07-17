@@ -62,5 +62,10 @@ namespace ConsoleBlackjack
 
             Result = BlackjackRules.GetResult(Player, Dealer);
         }
+
+        //public void DoubleRate()
+        //{
+
+        //}
     }
 }

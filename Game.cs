@@ -6,9 +6,11 @@ namespace ConsoleBlackjack
 {
     class Game
     {
-
+        public static int chips = Chips.BuyChips();
+        public static int rate = 0;
         public static void ShowStats(GameModel gameModel)
         {
+             
             Console.WriteLine("Dealer");
             foreach (Card card in gameModel.Dealer.Hand)
             {
@@ -26,7 +28,9 @@ namespace ConsoleBlackjack
                 Console.WriteLine(String.Format("{0}{1}", card.ID, card.Suit));
             }
 
-            Console.WriteLine("\n"+gameModel.Player.Hand.Value+" points");
+            Console.WriteLine("\n" + gameModel.Player.Hand.Value + " points");
+            Console.WriteLine("\nYour rate " + rate + " chips");
+            Console.WriteLine("You totally have " + chips + " chips now");
             Console.WriteLine(Environment.NewLine);
 
         }
@@ -34,7 +38,9 @@ namespace ConsoleBlackjack
         public static void CheckResult(string input)
         {
             //string input = "";
-
+            int blind = 1;
+            chips -= blind;
+            rate += blind;
             GameModel gameModel = new GameModel(17);
 
             ShowStats(gameModel);
@@ -55,6 +61,7 @@ namespace ConsoleBlackjack
                     {
                         gameModel.Stand();
                         ShowStats(gameModel);
+                        //rate = 0;
                     }
                     if (input.ToLower() != "hit" && input.ToLower() != "stand")
                     {
@@ -70,7 +77,8 @@ namespace ConsoleBlackjack
                 
             }
             Console.WriteLine(gameModel.Result);
-            Console.WriteLine("if you want to play again - just press any key twice");
+            
+            Console.WriteLine("if you want to play again and you have some chips - just press any key");
 
         }
 
