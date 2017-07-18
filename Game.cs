@@ -8,9 +8,10 @@ namespace ConsoleBlackjack
     {
         public static int chips = Chips.BuyChips();
         public static int rate = 0;
+        
         public static void ShowStats(GameModel gameModel)
         {
-             
+            
             Console.WriteLine("Dealer");
             foreach (Card card in gameModel.Dealer.Hand)
             {
