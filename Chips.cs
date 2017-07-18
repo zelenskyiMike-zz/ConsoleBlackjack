@@ -26,7 +26,6 @@ namespace ConsoleBlackjack
             }
             if (regex.IsMatch(inputValue))
             {
-                Console.WriteLine("Fine " + inputValue);
                 money = Int32.Parse(inputValue);
 
                 if (money < 10)
