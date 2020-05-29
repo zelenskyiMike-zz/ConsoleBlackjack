@@ -17,6 +17,5 @@ namespace ConsoleBlackjack
         {
             Hand = new Deck();
         }
-
     }
 }
